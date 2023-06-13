@@ -16,7 +16,6 @@ public class Item implements Serializable {
     @Column(name = "product_id")
     private UUID productId;
 
-    @Column(name = "quantity")
     private int quantity;
 
     //Constructors
