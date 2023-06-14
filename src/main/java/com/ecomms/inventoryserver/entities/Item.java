@@ -5,6 +5,14 @@ import java.io.Serializable;
 import java.util.UUID;
 import javax.persistence.*;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.RequiredArgsConstructor;
+
+
+
+@RequiredArgsConstructor
 @Entity
 @Table(name = "tb_inventory")
 public class Item implements Serializable {
@@ -16,33 +24,12 @@ public class Item implements Serializable {
     private UUID id;
 
     @Column(name = "product_id")
+    @Setter(AccessLevel.PUBLIC)
+    @Getter(AccessLevel.PUBLIC)
     private UUID productId;
 
+    @Setter(AccessLevel.PUBLIC)
+    @Getter(AccessLevel.PUBLIC)
     private int quantity;
 
-    //Constructors
-    public Item() {    }
-    public Item(UUID productId, int quantity) {
-        super();
-        this.productId=productId;
-        this.quantity=quantity;
-    }
-
-
-    //Getters and Setters
-    public void setProductId(UUID productId) {
-        this.productId = productId;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public UUID getProductId() {
-        return productId;
-    }
 }
