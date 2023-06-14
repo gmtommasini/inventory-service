@@ -1,5 +1,6 @@
 package com.ecomms.inventoryserver.entities;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.UUID;
 import javax.persistence.*;
@@ -7,6 +8,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tb_inventory")
 public class Item implements Serializable {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
