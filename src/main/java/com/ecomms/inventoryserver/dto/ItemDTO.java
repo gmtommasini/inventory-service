@@ -1,8 +1,6 @@
 package com.ecomms.inventoryserver.dto;
 
 import java.util.UUID;
-import java.io.Serializable;
-
 import lombok.*;
 
 @Getter
@@ -11,9 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-public class ItemDTO implements Serializable{
-    private static final long serialVersionUID = 1L;
-
+public class ItemDTO {
     private UUID productId;
     private int quantity;
 }
