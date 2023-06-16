@@ -1,10 +1,10 @@
 package com.ecomms.inventoryserver.entities;
 
+import lombok.*;
+
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.UUID;
-import javax.persistence.*;
-
-import lombok.*;
 
 
 @Getter
@@ -15,7 +15,7 @@ import lombok.*;
 @EqualsAndHashCode
 @Entity
 @Table(name = "tb_inventory")
-public class Item implements Serializable {
+public class InventoryItem implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id

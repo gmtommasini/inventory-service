@@ -9,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-public class ItemDTO {
+public class InventoryItemDTO {
     private UUID productId;
     private int quantity;
 }

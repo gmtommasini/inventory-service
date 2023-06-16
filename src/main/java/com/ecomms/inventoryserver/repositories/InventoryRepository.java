@@ -1,10 +1,16 @@
 package com.ecomms.inventoryserver.repositories;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import com.ecomms.inventoryserver.entities.Item;
+import com.ecomms.inventoryserver.entities.InventoryItem;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
 import java.util.UUID;
 
-public interface InventoryRepository extends JpaRepository<Item, Long>{
-    Item findByProductId(UUID productId);
+@Repository
+public interface InventoryRepository extends JpaRepository<InventoryItem, UUID> {
+
+    Optional<InventoryItem> findByProductId(UUID id);
+
 }
