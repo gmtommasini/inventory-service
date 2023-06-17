@@ -1,6 +1,5 @@
 package com.ecomms.inventoryserver.dto;
 
-import java.util.UUID;
 import lombok.*;
 
 @Getter
@@ -10,6 +9,6 @@ import lombok.*;
 @AllArgsConstructor
 @EqualsAndHashCode
 public class InventoryItemDTO {
-    private UUID productId;
+    private String productId;
     private int quantity;
 }
