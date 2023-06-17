@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-//import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "/api/inventory")
@@ -24,22 +23,13 @@ public class InventoryController {
 
     @GetMapping("/")
     public ResponseEntity<String> healthCheck(){
-        return ResponseEntity.ok().body("Working");
+        return ResponseEntity.ok().body("Controller Working");
     }
-    @GetMapping("/2")
-    public ResponseEntity<InventoryItemDTO> getQuantity(){
-        InventoryItemDTO item = service.getItemQuantity2();
+
+    @GetMapping("/{productId}")
+    public ResponseEntity<InventoryItemDTO> getQuantity(@PathVariable("productId") String productId){
+        System.out.println("ProductID" + productId);
+        InventoryItemDTO item =  service.getItemQuantity(productId);
         return ResponseEntity.ok().body(item);
     }
-
-
-
-
-//    @GetMapping("/{productId}/quantity")
-//    public ResponseEntity<InventoryItemDTO> getQuantity(@PathVariable("productID") UUID productID){
-//        InventoryItemDTO item =  service.getItemQuantity(productID);
-//        return ResponseEntity.ok().body(item);
-//    }
-
-
 }
