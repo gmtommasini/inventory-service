@@ -20,11 +20,20 @@ public class InventoryController {
 //    private final InventoryService service;
 //    public InventoryController(InventoryService service) {this.service = service;}
 
+    /**
+     * Health check. Does nothing
+     * @return 200
+     */
     @GetMapping("/")
     public ResponseEntity<String> healthCheck(){
         return ResponseEntity.ok().body("Controller Working");
     }
 
+    /**
+     * Fetches a complete Inventory Item
+     * @param productId
+     * @return json representing an Inventory Item
+     */
     @GetMapping("/{productId}")
     public ResponseEntity<InventoryItemDTO> getInventoryItem(@PathVariable("productId") String productId){
         InventoryItemDTO item =  service.getInventoryItem(productId);
