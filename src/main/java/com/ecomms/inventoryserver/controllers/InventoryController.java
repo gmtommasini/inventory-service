@@ -3,7 +3,6 @@ package com.ecomms.inventoryserver.controllers;
 import com.ecomms.inventoryserver.dto.InventoryItemDTO;
 import com.ecomms.inventoryserver.services.InventoryService;
 
-import com.ecomms.inventoryserver.dto.InventoryItemDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,9 +26,8 @@ public class InventoryController {
     }
 
     @GetMapping("/{productId}")
-    public ResponseEntity<InventoryItemDTO> getQuantity(@PathVariable("productId") String productId){
-        System.out.println("ProductID" + productId);
-        InventoryItemDTO item =  service.getItemQuantity(productId);
+    public ResponseEntity<InventoryItemDTO> getInventoryItem(@PathVariable("productId") String productId){
+        InventoryItemDTO item =  service.getInventoryItem(productId);
         return ResponseEntity.ok().body(item);
     }
 }
