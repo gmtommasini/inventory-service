@@ -8,9 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
-//import org.springframework.transaction.annotation.Transactional;
-
 
 @Service
 public class InventoryService {
@@ -19,15 +16,19 @@ public class InventoryService {
     private InventoryRepository repository;
 
 //    private  final InventoryRepository repository;
-//    public InventoryService(InventoryRepository repository) {
-//        this.repository = repository;
-//    }
+//    public InventoryService(InventoryRepository repository) {this.repository = repository;}
 
+    /**
+     * Receives a string of ProductID and returns the InventoryItemDTO corresponding
+     * @param productID The productId  of the required Inventory Item
+     * @return The InventoryItemDTO representing the item with the provided productID
+     */
     @Transactional(readOnly = true)
-    public InventoryItemDTO getItemQuantity(String productID){
+    public InventoryItemDTO getInventoryItem(String productID){
+
+//        TO DO: Create custom error for DB.
         InventoryItem obj = repository.findByProductId(productID)
                 .orElseThrow(()->new RuntimeException("ERROR finding id"));
-//        return new ItemDTO(obj.getProductId(), obj.getQuantity());
 
         return new InventoryItemDTO().builder().
                 quantity(obj.getQuantity()).
