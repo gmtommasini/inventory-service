@@ -21,8 +21,7 @@ public class InventoryItem implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @Column(name = "product_id")
     private String productId;
 
-    private int quantity;
+    private Integer quantity;
 }
